@@ -8,7 +8,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "P_manage-root")
-public class manage-rootEntity {
+public class ManageRootEntity {
 	
 	// This class is auto-generated.
 	// Please follow the (table and column) naming conventions.

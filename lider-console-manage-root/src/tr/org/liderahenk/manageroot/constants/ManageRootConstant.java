@@ -1,6 +1,6 @@
 package tr.org.liderahenk.manageroot.constants;
 
-public class manage-rootConstants {
+public class ManageRootConstant {
 	
 	public static final String PLUGIN_NAME = "manage-root";
 	

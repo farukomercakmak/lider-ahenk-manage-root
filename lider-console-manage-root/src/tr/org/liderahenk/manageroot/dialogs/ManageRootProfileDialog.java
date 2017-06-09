@@ -10,9 +10,9 @@ import tr.org.liderahenk.liderconsole.core.dialogs.IProfileDialog;
 import tr.org.liderahenk.liderconsole.core.exceptions.ValidationException;
 import tr.org.liderahenk.liderconsole.core.model.Profile;
 
-public class manage-rootProfileDialog implements IProfileDialog {
+public class ManageRootProfileDialog implements IProfileDialog {
 	
-	private static final Logger logger = LoggerFactory.getLogger(manage-rootProfileDialog.class);
+	private static final Logger logger = LoggerFactory.getLogger(ManageRootProfileDialog.class);
 	
 	@Override
 	public void init() {

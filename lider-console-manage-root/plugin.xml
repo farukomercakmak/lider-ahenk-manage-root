@@ -10,12 +10,12 @@
       </category>         
       <command
             categoryId="tr.org.liderahenk.liderconsole.commands.category"
-            id="tr.org.liderahenk.liderconsole.commands.manage-rootProfile"            
+            id="tr.org.liderahenk.liderconsole.commands.ManageRootProfile"            
             name="%command.profile">
       </command>
       <command
             categoryId="tr.org.liderahenk.liderconsole.commands.category"
-            id="tr.org.liderahenk.liderconsole.commands.manage-rootTask"            
+            id="tr.org.liderahenk.liderconsole.commands.ManageRootTask"            
             name="%command.task">
       </command>
    </extension>
@@ -25,8 +25,8 @@
 
 		<!-- Profile handler -->
        	<handler
-            class="tr.org.liderahenk.manageroot.handlers.manage-rootProfileHandler"
-            commandId="tr.org.liderahenk.liderconsole.commands.manage-rootProfile">
+            class="tr.org.liderahenk.manageroot.handlers.ManageRootProfileHandler"
+            commandId="tr.org.liderahenk.liderconsole.commands.ManageRootProfile">
            <!-- TODO Uncomment this after updating/fixing LiderSourceProvider -->
 		   <!-- <enabledWhen>
 				<and>
@@ -48,8 +48,8 @@
       	
       	<!-- Task handler -->
        <handler
-            class="tr.org.liderahenk.manageroot.handlers.manage-rootTaskHandler"
-            commandId="tr.org.liderahenk.liderconsole.commands.manage-rootTask">
+            class="tr.org.liderahenk.manageroot.handlers.ManageRootTaskHandler"
+            commandId="tr.org.liderahenk.liderconsole.commands.ManageRootTask">
            <!-- TODO Uncomment this after updating/fixing LiderSourceProvider -->
 		   <!-- <enabledWhen>
 				<and>
@@ -78,8 +78,8 @@
 		<menuContribution
             locationURI="menu:tr.org.liderahenk.liderconsole.menus.ProfileDefinition?after=additions">
  				<command
-                  commandId="tr.org.liderahenk.liderconsole.commands.manage-rootProfile"
-                  id="tr.org.liderahenk.liderconsole.commands.manage-rootProfile"
+                  commandId="tr.org.liderahenk.liderconsole.commands.ManageRootProfile"
+                  id="tr.org.liderahenk.liderconsole.commands.ManageRootProfile"
                   tooltip="%command.profile">
                   <!-- TODO Uncomment this after updating/fixing LiderSourceProvider -->
 				  <!-- <visibleWhen>
@@ -116,8 +116,8 @@
       		allPopups="false"
             locationURI="popup:tr.org.liderahenk.liderconsole.menus.ApplyTask?after=additions">
  				<command
-                  commandId="tr.org.liderahenk.liderconsole.commands.manage-rootTask"
-                  id="tr.org.liderahenk.liderconsole.commands.manage-rootTask"
+                  commandId="tr.org.liderahenk.liderconsole.commands.ManageRootTask"
+                  id="tr.org.liderahenk.liderconsole.commands.ManageRootTask"
                   tooltip="%command.task">
                   <!-- TODO Uncomment this after updating/fixing LiderSourceProvider -->
 				  <!-- <visibleWhen>
@@ -153,7 +153,15 @@
 	<!-- Add extension point contribution for "policy execution" dialogs -->
 	<extension
   		point="tr.org.liderahenk.liderconsole.core.policymenu">
-  		<policyItem label="%command.profile" pluginName="manage-root" pluginVersion="1.0.0" profileCommandId="tr.org.liderahenk.liderconsole.commands.manage-rootProfile" />
+  		<policyItem label="%command.profile" pluginName="ManageRoot" pluginVersion="1.0.0" profileCommandId="tr.org.liderahenk.liderconsole.commands.ManageRootProfile" />
+  	</extension>
+  	
+  	  	<extension
+  		point="tr.org.liderahenk.liderconsole.core.taskmenu">
+  		<taskItem label="%command.task" pluginName="ManageRoot" pluginVersion="1.0.0" 
+  		taskCommandId="tr.org.liderahenk.liderconsole.commands.ManageRootTask" selectionType="multi" 
+  		description="Toplu ya da tek tek root parolası değiştirmeye yarar." 
+  		imagePath="conky.png"/>
   	</extension>
   	
 </plugin>

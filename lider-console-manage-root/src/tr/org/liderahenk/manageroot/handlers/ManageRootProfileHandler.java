@@ -10,8 +10,8 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import tr.org.liderahenk.manageroot.constants.manage-rootConstants;
-import tr.org.liderahenk.manageroot.dialogs.manage-rootProfileDialog;
+import tr.org.liderahenk.manageroot.constants.ManageRootConstant;
+import tr.org.liderahenk.manageroot.dialogs.ManageRootProfileDialog;
 import tr.org.liderahenk.manageroot.i18n.Messages;
 import tr.org.liderahenk.liderconsole.core.constants.LiderConstants;
 import tr.org.liderahenk.liderconsole.core.editorinput.ProfileEditorInput;
@@ -20,9 +20,9 @@ import tr.org.liderahenk.liderconsole.core.editorinput.ProfileEditorInput;
  * Profile definition handler for manage-root plugin.
  *
  */
-public class manage-rootProfileHandler extends AbstractHandler {
+public class ManageRootProfileHandler extends AbstractHandler {
 
-	private Logger logger = LoggerFactory.getLogger(manage-rootProfileHandler.class);
+	private Logger logger = LoggerFactory.getLogger(ManageRootProfileHandler.class);
 
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		
@@ -34,8 +34,8 @@ public class manage-rootProfileHandler extends AbstractHandler {
 			// profiles can be handled by Lider Console Core.
 			// We also pass our profile dialog implementation as parameter to
 			// allow the editor use it dynamically.
-			page.openEditor(new ProfileEditorInput(Messages.getString("manage-root"), manage-rootConstants.PLUGIN_NAME, 
-					manage-rootConstants.PLUGIN_VERSION, new manage-rootProfileDialog()), 
+			page.openEditor(new ProfileEditorInput(Messages.getString("manage-root"), ManageRootConstant.PLUGIN_NAME, 
+					ManageRootConstant.PLUGIN_VERSION, new ManageRootProfileDialog()), 
 					LiderConstants.EDITORS.PROFILE_EDITOR);
 		} catch (PartInitException e) {
 			logger.error(e.getMessage(), e);

@@ -29,8 +29,8 @@
 	</bean>
 
 	<!-- ICommand implementation is used to process a task execution -->
-	<service ref="manage-rootCommand" interface="tr.org.liderahenk.lider.core.api.plugin.ICommand" />
-	<bean id="manage-rootCommand" class="tr.org.liderahenk.manageroot.commands.manage-rootCommand">
+	<service ref="SetRootPasswordCommand" interface="tr.org.liderahenk.lider.core.api.plugin.ICommand" />
+	<bean id="SetRootPasswordCommand" class="tr.org.liderahenk.manageroot.commands.SetRootPasswordCommand">
 		<property name="resultFactory" ref="resultFactory" />
 		<property name="pluginInfo" ref="pluginInfoImpl" />
 		<property name="logService" ref="logService" />

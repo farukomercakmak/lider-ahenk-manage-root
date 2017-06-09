@@ -17,9 +17,9 @@ import tr.org.liderahenk.lider.core.api.service.ICommandResult;
 import tr.org.liderahenk.lider.core.api.service.ICommandResultFactory;
 import tr.org.liderahenk.lider.core.api.service.enums.CommandResultStatus;
 
-public class manage-rootCommand implements ICommand {
+public class SetRootPasswordCommand implements ICommand {
 
-	private Logger logger = LoggerFactory.getLogger(manage-rootCommand.class);
+	private Logger logger = LoggerFactory.getLogger(SetRootPasswordCommand.class);
 	
 	private ICommandResultFactory resultFactory;
 	private IPluginInfo pluginInfo;
@@ -35,6 +35,7 @@ public class manage-rootCommand implements ICommand {
 		parameterMap.put("dummy-param", "dummy-param-value");
 		
 		logger.debug("Parameter map updated.");
+	//	pluginDbService.findByProperties(entityClass, propertiesMap, orders, maxResults)
 		
 		// TODO Modify entity objects related to plugin command via DB service
 		//Object entity = new Object();
@@ -53,19 +54,16 @@ public class manage-rootCommand implements ICommand {
 
 	@Override
 	public ICommandResult validate(ICommandContext context) {
-		// TODO Validate before command execution
 		return resultFactory.create(CommandResultStatus.OK, null, this, null);
 	}
 
 	@Override
 	public String getCommandId() {
-		// TODO Unique command ID used to match incoming REST requests to this Command class.
-		return "SAMPLE_COMMAND1";
+		return "SET_ROOT_PASSWORD";
 	}
 
 	@Override
 	public Boolean executeOnAgent() {
-		// TODO True if we need to send a task to agent(s), false otherwise.
 		return true;
 	}
 	
