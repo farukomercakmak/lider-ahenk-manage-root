@@ -15,6 +15,7 @@ import org.eclipse.swt.widgets.Text;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import tr.org.liderahenk.manageroot.constants.ManageRootConstant;
 import tr.org.liderahenk.manageroot.i18n.Messages;
 import tr.org.liderahenk.liderconsole.core.dialogs.DefaultTaskDialog;
 import tr.org.liderahenk.liderconsole.core.exceptions.ValidationException;
@@ -83,12 +84,12 @@ public class ManageRootTaskDialog extends DefaultTaskDialog {
 
 	@Override
 	public String getPluginName() {
-		return "manage-root";
+		return ManageRootConstant.PLUGIN_NAME;
 	}
 
 	@Override
 	public String getPluginVersion() {
-		return "1.0.0";
+		return ManageRootConstant.PLUGIN_VERSION;
 	}
 	
 	@Override

@@ -150,12 +150,12 @@
 		</menuContribution>
   </extension>
   
-	<!-- Add extension point contribution for "policy execution" dialogs -->
+	<!-- Add extension point contribution for "policy execution" dialogs 
 	<extension
   		point="tr.org.liderahenk.liderconsole.core.policymenu">
   		<policyItem label="%command.profile" pluginName="ManageRoot" pluginVersion="1.0.0" profileCommandId="tr.org.liderahenk.liderconsole.commands.ManageRootProfile" />
   	</extension>
-  	
+  	-->
   	  	<extension
   		point="tr.org.liderahenk.liderconsole.core.taskmenu">
   		<taskItem label="%command.task" pluginName="ManageRoot" pluginVersion="1.0.0" 
