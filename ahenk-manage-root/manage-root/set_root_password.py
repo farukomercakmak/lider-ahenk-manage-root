@@ -31,7 +31,7 @@ class RootPassword(AbstractPlugin):
 
     def handle_task(self):
         password = self.task['RootPassword'];
-        self.logger.debug('[Root Pass] password:  ' + str(password));
+        self.logger.debug('[Root Pass] password:  ' + str("**********"));
 
         mail_send = False
         mail_subject = ''
