@@ -33,7 +33,7 @@ class RootPassword(AbstractPlugin):
         password = self.task['RootPassword'];
         self.logger.debug('[Root Pass] password:  ' + str(password));
 
-        mail_send = ''
+        mail_send = False
         mail_subject = ''
         mail_content = ''
 
