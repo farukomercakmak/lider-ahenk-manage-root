@@ -13,7 +13,7 @@ class RootPassword(AbstractPlugin):
         self.context = context
         self.message_code = self.get_message_code()
         self.logger = self.get_logger()
-        self.create_shadow_password = 'mkpasswd -m sha-512 {}'
+        self.create_shadow_password = 'mkpasswd {}'
         self.change_password = 'usermod -p {0} {1}'
         self.username= 'root'
 
@@ -23,14 +23,18 @@ class RootPassword(AbstractPlugin):
         values = ['set_root_password', status, self.timestamp()]
         self.db_service.update('mail', cols, values)
 
-    def set_mail(self,mail_content,disk_limit,usage):
+    def set_mail(self,mail_content):
         if mail_content.__contains__('{date}'):
-            mail_content = str(mail_content).replace('{date}', datetime.date.today());
+            mail_content = str(mail_content).replace('{date}', str(datetime.date.today()));
         if mail_content.__contains__('{ahenk}'):
             mail_content = str(mail_content).replace('{ahenk}', str(self.Ahenk.dn()));
 
+        self.context.set_mail_content(mail_content)
+
     def handle_task(self):
         password = self.task['RootPassword'];
+        rootEntity = self.task['rootEntity'];
+
         self.logger.debug('[Root Pass] password:  ' + str("**********"));
 
         mail_send = False
@@ -49,13 +53,15 @@ class RootPassword(AbstractPlugin):
                 result_code, p_out, p_err = self.execute(self.create_shadow_password.format(password))
                 shadow_password = p_out.strip()
                 self.execute(self.change_password.format('\'{}\''.format(shadow_password), self.username))
+                self.set_mail(mail_content)
                 self.context.create_response(code=self.message_code.TASK_PROCESSED.value,
                                              message='Parola Başarı ile değiştirildi.',
                                              data=json.dumps({
                                                  'Result': 'Parola Başarı ile değiştirildi.',
-                                                 'mail_content': str(mail_content),
-                                                 'mail_subject': str(mail_subject),
-                                                 'mail_send': mail_send
+                                                 'mail_content': str(self.context.get_mail_content()),
+                                                 'mail_subject': str(self.context.get_mail_subject()),
+                                                 'mail_send': self.context.is_mail_send(),
+                                                 'rootEntity': rootEntity
                                              }),
                                              content_type=ContentType.APPLICATION_JSON.value)
                 self.logger.debug('Changed password.')
@@ -67,9 +73,10 @@ class RootPassword(AbstractPlugin):
                                          message='Parola değiştirilirken hata oluştu.',
                                          data=json.dumps({
                                              'Result': 'Parola değiştirilirken hata oluştu.',
-                                             'mail_content': str(mail_content),
-                                             'mail_subject': str(mail_subject),
-                                             'mail_send': mail_send
+                                             'mail_content': str(self.context.get_mail_content()),
+                                             'mail_subject': str(self.context.get_mail_subject()),
+                                             'mail_send': self.context.is_mail_send(),
+                                             'rootEntity': rootEntity
                                          }),
                                          content_type=ContentType.APPLICATION_JSON.value)
 
