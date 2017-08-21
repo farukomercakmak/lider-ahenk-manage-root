@@ -164,4 +164,10 @@
   		imagePath="conky.png"/>
   	</extension>
   	
+  		<extension
+         point="tr.org.liderahenk.liderconsole.core.i18n">
+         <task code="SET_ROOT_PASSWORD" label="%command.task" />
+        <plugin name="Manage Root" label="%plugin.label" />
+     </extension>
+  	
 </plugin>
