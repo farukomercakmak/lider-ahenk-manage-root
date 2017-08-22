@@ -167,7 +167,7 @@
   		<extension
          point="tr.org.liderahenk.liderconsole.core.i18n">
          <task code="SET_ROOT_PASSWORD" label="%command.task" />
-        <plugin name="Manage Root" label="%plugin.label" />
+        <plugin name="manage-root" label="%plugin.label" />
      </extension>
   	
 </plugin>
