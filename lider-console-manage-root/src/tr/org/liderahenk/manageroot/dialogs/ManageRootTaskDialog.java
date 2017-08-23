@@ -101,7 +101,7 @@ public class ManageRootTaskDialog extends DefaultTaskDialog {
 	@Override
 	public String getMailContent() {
 		
-		return "cn={ahenk} ahenkde tanımlamış olduğunuz {date} root şifresi başarı ile değiştirilmiştir.";
+		return "cn={ahenk} ahenkde tanımlamış olduğunuz root şifresi {date} tarihinde başarı ile değiştirilmiştir.";
 	}
 	
 }
