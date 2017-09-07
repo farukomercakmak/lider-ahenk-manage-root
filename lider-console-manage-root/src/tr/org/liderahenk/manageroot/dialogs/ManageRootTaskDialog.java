@@ -53,7 +53,7 @@ public class ManageRootTaskDialog extends DefaultTaskDialog {
 		
 		lblRootPassword.setText(Messages.getString("SET_ROOT_PASS"));
 		
-		textRootPassword = new Text(composite, SWT.BORDER);
+		textRootPassword = new Text(composite, SWT.BORDER | SWT.PASSWORD);
 		GridData gd_RootPassword = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
 		gd_RootPassword.widthHint = 135;
 		textRootPassword.setLayoutData(gd_RootPassword);

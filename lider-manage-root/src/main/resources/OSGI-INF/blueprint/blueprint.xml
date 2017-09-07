@@ -50,4 +50,7 @@
 		interface="tr.org.liderahenk.lider.core.api.log.IOperationLogService" />
 	<reference id="resultFactory"
 		interface="tr.org.liderahenk.lider.core.api.service.ICommandResultFactory" />
+	<reference id="commandDao"
+		interface="tr.org.liderahenk.lider.core.api.persistence.dao.ICommandDao" />
+		<reference id="entityFactory" interface="tr.org.liderahenk.lider.core.api.persistence.factories.IEntityFactory" />
 </blueprint>

@@ -15,6 +15,7 @@ import tr.org.liderahenk.lider.core.api.log.IOperationLogService;
 import tr.org.liderahenk.lider.core.api.messaging.enums.StatusCode;
 import tr.org.liderahenk.lider.core.api.persistence.IPluginDbService;
 import tr.org.liderahenk.lider.core.api.persistence.entities.ICommandExecutionResult;
+import tr.org.liderahenk.lider.core.api.persistence.factories.IEntityFactory;
 import tr.org.liderahenk.lider.core.api.plugin.ICommand;
 import tr.org.liderahenk.lider.core.api.plugin.IPluginInfo;
 import tr.org.liderahenk.lider.core.api.plugin.ITaskAwareCommand;
@@ -33,7 +34,8 @@ public class SetRootPasswordCommand implements ICommand, ITaskAwareCommand {
 	private IPluginInfo pluginInfo;
 	private IOperationLogService logService;
 	private IPluginDbService pluginDbService;
-
+	
+	
 	@Override
 	public ICommandResult execute(ICommandContext context) {
 
@@ -110,11 +112,12 @@ public class SetRootPasswordCommand implements ICommand, ITaskAwareCommand {
 		this.pluginDbService = pluginDbService;
 	}
 
+	
+	
 	@Override
 	public void onTaskUpdate(ICommandExecutionResult result) {
 
 		try {
-			
 			byte[] data = result.getResponseData();
 			
 			ObjectMapper mapper = new ObjectMapper();
@@ -146,5 +149,6 @@ public class SetRootPasswordCommand implements ICommand, ITaskAwareCommand {
 
 	
 	}
+
 	
 }
